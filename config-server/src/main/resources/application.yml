@@ -1,14 +1,16 @@
 server:
-  port: 8769
+  port: 8888
 spring:
   application:
-    name: service-zuul
+    name: config-server
 
-zuul:
-  routes:
-    api-a:
-      path: /api-a/**
-      service-id: service-ribbon
-    api-b:
-      path: /api-b/**
-      service-id: service-feign
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/liuhaozzu/micro-service
+          search-paths: config-server
+          # username: liuhaozzu
+          # password: ******
+      label: master
+      
