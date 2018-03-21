@@ -1,14 +1,16 @@
-package com.liuhaozzu.zuul.filter;
+package com.liuhaozzu.service.zuul.filter;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Component;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 
+@Component
 public class MyFilter extends ZuulFilter{
 	private static final Logger LOGGER=LogManager.getLogger(MyFilter.class);
 

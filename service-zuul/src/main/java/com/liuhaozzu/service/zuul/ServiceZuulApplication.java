@@ -1,4 +1,4 @@
-package com.liuhaozzu.zuul;
+package com.liuhaozzu.service.zuul;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
