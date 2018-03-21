@@ -1,5 +1,5 @@
 server:
-  port: 8881
+  port: 8882
 spring:
   application:
     name: config-client
@@ -12,12 +12,15 @@ spring:
       discovery:
         enabled: true
         service-id: config-server
-#  activemq:
-#    broker-url: tcp://localhost:61616
-#    user: admin
-#    password: admin
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: liuhaozzu
+    password: 123456
 eureka:
   client:
     service-url:
       default-zone: http://localhost:8761/eureka/
-      
+management:
+  security:
+    enabled: false
