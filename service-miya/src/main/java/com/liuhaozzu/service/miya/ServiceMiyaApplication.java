@@ -1,4 +1,4 @@
-package com.liuhaozzu.service.hi;
+package com.liuhaozzu.service.miya;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,10 +16,10 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @RestController
-public class ServiceHiApplication {
-    private static final Logger LOG = Logger.getLogger(ServiceHiApplication.class.getName());
+public class ServiceMiyaApplication {
+    private static final Logger LOG = Logger.getLogger(ServiceMiyaApplication.class.getName());
 	public static void main(String[] args) {
-		SpringApplication.run(ServiceHiApplication.class, args);
+		SpringApplication.run(ServiceMiyaApplication.class, args);
 	}
 	
 	@Autowired
@@ -30,22 +30,16 @@ public class ServiceHiApplication {
         return new RestTemplate();
     }
 	
-	@Value("${server.port}")
-	String port;
 	
 	@RequestMapping("/hi")
-	public String callHome() {
-		LOG.log(Level.INFO, "calling trace service-hi  ");
-		return restTemplate.getForObject("http://localhost:8989/miya", String.class);
+	public String callHome(@RequestParam String name) {
+		LOG.log(Level.INFO, "hi is being called");
+        return "hi i'm miya!";
 	}
-	@RequestMapping("/info")
+	@RequestMapping("/miya")
     public String info(){
-        LOG.log(Level.INFO, "calling trace service-hi ");
+        LOG.log(Level.INFO, "info is being called");
+        return restTemplate.getForObject("http://localhost:8988/info",String.class);
+    }
 
-        return "i'm service-hi";
-    }
-	@Bean
-    public AlwaysSampler defaultSampler(){
-        return new AlwaysSampler();
-    }
 }

@@ -35,6 +35,7 @@
 		<module>zipkin-server</module>
 		<module>user-service</module>
 		<module>gateway-service</module>
+		<module>service-miya</module>
 	</modules>
 	<dependencyManagement>
 		<dependencies>
