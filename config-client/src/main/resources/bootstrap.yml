@@ -1,0 +1,23 @@
+server:
+  port: 9990
+spring:
+  application:
+    name: config-client
+
+  cloud:
+    config:
+      label: master
+      profile: dev
+      # uri: http://localhost:8888
+      discovery:
+        enabled: true
+        service-id: config-server
+#  activemq:
+#    broker-url: tcp://localhost:61616
+#    user: admin
+#    password: admin
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka/
+      

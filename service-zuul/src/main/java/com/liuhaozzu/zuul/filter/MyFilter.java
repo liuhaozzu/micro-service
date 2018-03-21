@@ -2,19 +2,18 @@ package com.liuhaozzu.zuul.filter;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.http.HttpStatus;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
-import com.netflix.zuul.exception.ZuulException;
 
 public class MyFilter extends ZuulFilter{
 	private static final Logger LOGGER=LogManager.getLogger(MyFilter.class);
 
 	@Override
-	public Object run() throws ZuulException {
+	public Object run() {
 		RequestContext ctx=RequestContext.getCurrentContext();
 		HttpServletRequest request = ctx.getRequest();
 		LOGGER.info(String.format("%s >>> %s", request.getMethod(), request.getRequestURL().toString()));
